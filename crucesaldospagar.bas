@@ -1,4 +1,3 @@
-Attribute VB_Name = "M骴ulo1"
 Sub cuentaSinSaldoProveedor()
 
     Dim documentosEntrada As String, documentosSalida As String
@@ -35,30 +34,32 @@ Sub cuentaSinSaldoProveedor()
                             If valorDebito = valorCredito Then
                                 Workbooks(libroAux).Activate
                                 Workbooks(libroAux).Sheets("aux").Rows(i).Select
-                                ' Cambia el color de fondo de la selecci髇 al color #ffb3ff
+                                ' Cambia el color de fondo de la selecci贸n al color #ffb3ff
                                 With Selection.Interior
-                                    .Color = RGB(0, 255, 255) ' C骴igo RGB para el color #ffb3ff
+                                    .Color = RGB(0, 255, 255) ' C贸digo RGB para el color #ffb3ff
                                 End With
-                                ' Quita la selecci髇
+                                ' Quita la selecci贸n
                                 Application.CutCopyMode = False
                                 
                                 Workbooks(libroAux).Sheets("aux").Rows(j).Select
-                                ' Cambia el color de fondo de la selecci髇 al color #ffb3ff
+                                ' Cambia el color de fondo de la selecci贸n al color #ffb3ff
                                 With Selection.Interior
-                                    .Color = RGB(0, 255, 255) ' C骴igo RGB para el color #ffb3ff
+                                    .Color = RGB(0, 255, 255) ' C贸digo RGB para el color #ffb3ff
                                 End With
-                                ' Quita la selecci髇
+                                ' Quita la selecci贸n
                                 Application.CutCopyMode = False
                                 
                                 Workbooks(libroAux).Sheets("aux").Range("V" & i).Value = "ok"
                                 Workbooks(libroAux).Sheets("aux").Range("V" & j).Value = "ok"
+                                
+                                Exit For
                             End If
                         End If
                     End If
                 Next j
             End If
         End If
-        
+        valorDebito = ""
+        validaCredito = ""
     Next i
-
 End Sub
